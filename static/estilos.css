@@ -1,0 +1,179 @@
+body{
+    
+    background-image: url('../static/Fondo.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0; /* Elimina el margen prede*/
+}
+.container{
+    border-radius: 2%;
+    background-image: url('../static/img.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0; /* Elimina el margen prede*/
+    margin-bottom:15% ;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 5%;
+
+}
+.containerq{
+    background-color:#626970;
+    padding-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 55px;
+    text-shadow: 
+        -1px -1px 0 #eae5e5,  
+        1px -1px 0 #f4efef,
+        -1px 1px 0 #f4efef,
+        1px 1px 0 #f4efef;
+}
+
+/*  estilos formulario*/
+
+label{
+    font-size: 5vmin;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 1%;
+    text-shadow: 
+        -1px -1px 0 #eae5e5,  
+        1px -1px 0 #f4efef,
+        -1px 1px 0 #f4efef,
+        1px 1px 0 #f4efef;
+}
+.select{
+    width: 26%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 47.5%;
+    border: 2px solid black; /* Cambia "border-color" a "border" */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+input{
+    width: 23.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 22.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid black;
+}
+.segunP{
+    width: 23.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 12.2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid black;
+}
+.TotSotano{
+    width: 23.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 14.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid black;
+}
+.TotSot1{
+    width: 23.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 12.7%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid black;
+}
+.firts{
+    width: 23.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 14.7%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border: 2px solid black;
+}
+.Vecindario{
+    width: 25.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 53.9%;
+    border: 2px solid black; /* Cambia "border-color" a "border" */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+.cocina{
+    width: 25.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 44.5%;
+    border: 2px solid black; /* Cambia "border-color" a "border" */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+.autos{
+    width: 25.5%;
+    height: 15%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-items: end;
+    margin-left: 32.2%;
+    border: 2px solid black; /* Cambia "border-color" a "border" */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+}
+.max{
+    margin-left: 10.5%;
+}
+.old{
+    margin-left: 15.7%;
+}
+.chol{
+    margin-left: 23.7%;
+}
+.btn{
+    display: block; /* Asegura que el botón se comporte como un bloque */
+    background-color: green;
+    margin: 0 auto; /* Centra horizontalmente el botón */
+    text-align: center; /* Centra el texto dentro del botón */
+}
+.res{
+    font-size: 2.5em;
+    align-items: center;
+    padding: 5%;
+}

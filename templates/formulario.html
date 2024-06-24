@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}">
+    <title>Predicción de precios de casas</title>
+    <script>
+        function PricePrediccion(event){
+            event.preventDefault();
+            const OverallQual  = document.getElementById('OverallQual').value;
+            const GrLivArea = document.getElementById('GrLivArea').value;
+            const ndFlrSF = document.getElementById('2ndFlrSF').value;
+            const TotalBsmtSF = document.getElementById('TotalBsmtSF').value;
+            const BsmtFinSF1 = document.getElementById('BsmtFinSF1').value;
+            const stFlrSF = document.getElementById('1stFlrSF').value;
+            const Neighborhood = document.getElementById('Neighborhood').value;
+            const KitchenQual = document.getElementById('KitchenQual').value;
+            const GarageCars = document.getElementById('GarageCars').value;
+            
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `OverallQual=${encodeURIComponent(OverallQual)}&GrLivArea=${encodeURIComponent(GrLivArea)}&2ndFlrSF=${encodeURIComponent(ndFlrSF)}&TotalBsmtSF=${encodeURIComponent(TotalBsmtSF)}&BsmtFinSF1=${encodeURIComponent(BsmtFinSF1)}&1stFlrSF=${encodeURIComponent(stFlrSF)}&Neighborhood=${Neighborhood}&KitchenQual=${KitchenQual}&GarageCars=${GarageCars}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('resultado').innerText = 'Error: ' + data.error;
+                } else {
+                    document.getElementById('resultado').innerText = 'Según los datos ingresados, el precio aproximado de la vivienda es: ' + data.categoria;
+                }
+            })
+            .catch(error => {
+                document.getElementById('resultado').innerText = 'Error en la solicitud.';
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="formulario">
+            <h1>Predicción de precio de vivienda</h1>
+            <form id="formulario" onsubmit="PricePrediccion(event)">
+                <label for="OverallQual">Calidad general</label>
+                <select class="select" name="OverallQual" id="OverallQual">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+<br>
+                <label for="GrLivArea">Área habitable (en pies cuadrados)</label> 
+                <input type="text" name="GrLivArea" id="GrLivArea"> <br>
+
+                <label for="2ndFlrSF">Área del segundo piso (en pies cuadrados)</label>
+                <input class="segunP" type="text" name="2ndFlrSF" id="2ndFlrSF"><br>
+
+                <label for="TotalBsmtSF">Área total del sótano (en pies cuadrados)</label>
+                <input class="TotSotano" type="text" name="TotalBsmtSF" id="TotalBsmtSF"><br>
+
+                <label for="BsmtFinSF1">Área del sótano tipo 1 (en pies cuadrados)</label>
+                <input class="TotSot1" type="text" name="BsmtFinSF1" id="BsmtFinSF1"><br>
+
+                <label for="1stFlrSF">Área del primer piso (en pies cuadrados)</label>
+                <input class="firts" type="text" name="1stFlrSF" id="1stFlrSF"><br>
+
+                <label for="Neighborhood">Vecindario</label>
+                <select class="Vecindario" name="Neighborhood" id="Neighborhood">
+                    <option value="">Selecciona una opción</option>
+                    <option value="1">College Creek</option>
+                    <option value="2">Veenker</option>
+                    <option value="3">Crawford</option>
+                    <option value="4">North Ridge</option>
+                    <option value="5">Mitchell</option>
+                    <option value="6">Somerset</option>
+                    <option value="7">Northwest Ames</option>
+                    <option value="8">Old Town</option>
+                    <option value="9">Brookside</option>
+                    <option value="10">Sawyer</option>
+                    <option value="11">Northridge Heights</option>
+                    <option value="12">North Ames</option>
+                    <option value="13">Sawyer West</option>
+                    <option value="14">lowa DOT and Rail Road</option>
+                    <option value="15">Meadow Village </option>
+                    <option value="16">Edwards</option>
+                    <option value="17">Timberland</option>
+                    <option value="18">Gilbert</option>
+                    <option value="19">Stone Brook</option>
+                    <option value="20">Clear Creek</option>
+                    <option value="21">Northpark Villa</option>
+                    <option value="22">Bloomington Heights</option>
+                    <option value="23">Briardale</option>
+                    <option value="24">South and West of Iowa State University</option>
+                    <option value="25">Bluestem</option>
+                </select>
+               <br>
+                <label for="KitchenQual">Calidad de cocina</label>
+                <select class="cocina" name="KitchenQual" id="KitchenQual">
+                <option value="">Selecciona una opción</option>
+                <option value="1">Excelente</option>
+                <option value="2">Buena</option>
+                <option value="3">Tipica/Media</option>
+                <option value="4">Justa</option>
+                </select>
+<br>
+                <label for="GarageCars">Número de autos en garaje</label>
+                <select  class="autos" name="GarageCars" id="GarageCars">
+                <option value="">Selecciona una opción</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+                <br>
+            
+                <input class="btn" type="submit" value="Enviar">
+            </form>
+            <p class="res" id="resultado"></p>
+        </div>
+    </div>
+</body>
+</html>
